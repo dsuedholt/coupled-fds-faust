@@ -35,7 +35,7 @@ nTimesteps = 1; // T
 schemeUpdate(points,R,T,scheme) = fd.route1D(points,R,T,scheme) : fd.buildScheme1D(points,R,T);
 
 
-//---------------------------`system1D`---------------------------------------
+//---------------------------`forceUpdate1D`---------------------------------------
 // Given a number of FDS schemes whose individual update equations have already
 // been calculated, calculate the force at each coupling point and add it back 
 // to the affected grid points according to the order of the coupling
