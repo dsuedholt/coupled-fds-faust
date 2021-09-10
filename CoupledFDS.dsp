@@ -372,7 +372,8 @@ coupledSchemes = environment {
     nPoints(i) = params(i).nPoints;
     
     // stack all schemes in parallel using functions from the fd library
-    schemes = par(i, nSchemes, schemeUpdate(params(i).nPoints, nNeighbors, nTimesteps, simplySupportedScheme(params(i))));
+    schemes = par(i, nSchemes-1, schemeUpdate(params(i).nPoints, nNeighbors, nTimesteps, simplySupportedScheme(params(i)))),
+                schemeUpdate(params(3).nPoints, nNeighbors, nTimesteps, clampedScheme(params(3)));
 
     // since the points of all schemes are stacked together we need to 
     // determine where one schemes stops and the next begins
